@@ -3,5 +3,5 @@
 (defn get-clipboard []
   (.getSystemClipboard (java.awt.Toolkit/getDefaultToolkit)))
 
-(defn spit-clipboard [^String text]
+(defn spit-clipboard [text]
   (.setContents (get-clipboard) (java.awt.datatransfer.StringSelection. text) nil))

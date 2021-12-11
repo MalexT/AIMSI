@@ -1,9 +1,7 @@
 (ns clipboardf.clipboard)
 
-(defn get-clipboard []
-  (.getSystemClipboard (java.awt.Toolkit/getDefaultToolkit)))
-
+;Fixed the problem
 (defn spit-clipboard 
-  "Not working properly. This needs to be fixed."
+  "Coppies given argument to clipboard."
   [text]
-  (.setContents (get-clipboard) (java.awt.datatransfer.StringSelection. text) nil))
+  (-> (java.awt.Toolkit/getDefaultToolkit) .getSystemClipboard (.setContents (java.awt.datatransfer.StringSelection. text) nil)))
